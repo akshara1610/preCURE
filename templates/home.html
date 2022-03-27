@@ -1,0 +1,221 @@
+{% extends "index.html" %}
+
+{% block title %}preCURE{% endblock %}
+
+{% block content %}
+<section id="main-page">
+<div class="bg-color ">
+    <!-- NavBar -->
+    
+    <nav class="navbar navbar-expand-lg ">
+        
+        <a class="navbar-brand" href="#"><img class="banner-logo" src="static/images/Logo.png" alt=""></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <!-- <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#main-page">Home</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#vision">Vision</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#contact">Contact</a>
+                </li>
+          </ul>
+        </div>
+    </nav>
+   
+
+    <!-- Description -->
+    <div class="content-desc">
+        <img class="desc-logo" src="static/images/Logo.png" alt="">
+        <h1>PREDICT AND PREVENT</h1>
+        <p>A one stop solution to predict epidemic outbreak and take measures to curb it at an early stage or take safety measures for protection against it.</p>
+        <button type="button" class="btn btn-success btn-lg actionbutton" data-bs-toggle="modal" data-bs-target="#login">
+            {{action}}
+          </button>
+
+          {% if action=="LOGIN"%}
+         
+          <div class="modal fade logmod" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <img class="inmodal" src="static/images/Logo.png" alt="">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                <div class="modal-body">
+                  
+                      
+                    <div class="form-group ">
+                      {{form.hidden_tag()}} 
+                        <!-- <input type="email" class="form-control" name="authemail" id="" placeholder="Email ID" required/>
+                        <input type="password" class="form-control" name="authpwd" id="" placeholder="password" required/> -->
+                        {{form.email(class="form-control")}}
+                        {{form.password(class="form-control")}}
+                      </div>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  {{form.submit1(class="btn btn-primary log")}}
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+        
+          {% elif action=="REGISTER"%}
+          <div class="modal fade regmod" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <img class="inmodal" src="static/images/Logo.png" alt="">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                <div class="modal-body">
+                  
+                      
+                    <div class="form-group ">
+                      {{form.hidden_tag()}} 
+                        
+                        {{form.name(class="form-control")}}
+                        {{form.phone(class="form-control")}}
+                        {{form.email(class="form-control")}}
+                        {{form.category(class="form-control large dropdown")}}
+                        {{form.company(class="form-control")}}
+                        {{form.address(class="form-control")}}
+                      </div>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 {{form.submit2(class="btn btn-primary log")}}
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+
+    </div>
+    
+</div>
+</section>
+
+<!-- Vision -->
+<section id="vision">
+    <a href="#main-page"><i class="fad fa-2x fa-arrow-alt-from-bottom icon"></i></a>
+    <div class="row">
+        <div class="col-lg-6 heading">
+            <h1><span>OUR</span> VISION</h1>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="vision-row">
+                <img class="vispic " src="static/images/trend.png" alt="">
+                
+                <p>Weekly Epidemic Trend Monitoring for 
+                    Timely Action.</p>
+              </div>
+              <div class="vision-row">
+                <img class="vispic" src="static/images/ml.png" alt="">
+                
+                <p>Machine Learning based Epidemic
+                    Prediction</p>
+              </div>
+              <div class="vision-row">
+                <img class="vispic" src="static/images/alert.png" alt="">
+                
+                <p>Automated Alert Mechanism in
+                    Alarming Situations.</p>
+              </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- Team -->
+<section id="team">
+    <div class="row">
+        <div class="col-lg-6 teampic">
+            
+            <div class="team-row">
+                <img class="tpic " src="static/images/JS.png" alt="">
+                
+                <br>
+                
+                <h3>JS ABHISHEK</h3>
+
+                <h3>18BEC1203</h3>
+                <br>
+                <p class="job">MACHINE LEARNING ENGINEER
+                    <br>
+                <em style="font-weight: lighter; font-size: 0.9rem;">Electronics and Communication Engineering</em></p>
+              </div>
+              <div class="team-row">
+                <img class="tpic" src="static/images/Akshara.png" alt="">
+                <br>
+                
+                <h3>AKSHARA PRAMOD</h3>
+                <h3>18BLC1149</h3>
+                <br>
+                <p class="job">WEB DEVELOPER
+                    <br>
+                    <em style="font-weight: lighter; font-size: 0.9rem;">Electronics and Computer Engineering</em></p>
+              </div>
+              
+
+
+        </div>
+        <div class="col-lg-6 heading">
+            <h1><span>OUR</span> TEAM</h1>
+        </div>
+    </div>
+   
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <a href="#main-page"><i class="fad fa-2x fa-arrow-alt-from-bottom icon"></i></i></a>
+    <div class="row">
+        <div class="col-lg-6 contactus">
+            
+            <h1><span>CON</span>TACT US</h1>
+            <table class="contacts">
+            <tr>
+                <td><i class="fas fa-2x fa-phone-square-alt"></i></td>
+                <td>+91 9999900000</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-2x fa-envelope"></i></td>
+                <td>emailid@precure.com</td>
+            </tr>
+        </table>
+        </div>
+        <div class="col-lg-6 query">
+            <h3>Have a Query?</h3>
+            <form action="{{ url_for('query')}}" >
+                <div class="form-group ">
+                    
+                    <input type="text" class="form-control " name="name"  placeholder="Name">
+                    <input type="tel" class="form-control" name="contact"  placeholder="Contact No.">
+                    <textarea class="form-control" name="msg" rows="5" placeholder="Message"></textarea>
+                    
+                  </div>
+                  <p>{{confirmation}}</p>
+                  <button class="btn btn-primary" type="submit">Submit</button>
+            
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="foot">
+    <p>Created by preCURE</p>
+</footer>
+{%endblock %}

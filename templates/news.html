@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block title %}News Headlines{% endblock %}
+
+{% block content %}
+<!-- <section id="main-page">
+<div class="bg-color "> -->
+    <!-- NavBar -->
+    
+    <nav class="navbar onlynav navbar-expand-lg ">
+        
+        <a class="navbar-brand" href="#"><img class="banner-logo" src="static/images/Logo.png" alt=""></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <!-- <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#main-page">Home</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/loggedin">Back to Home Page</a>
+                </li>
+                
+          </ul>
+        </div>
+    </nav>
+<!-- </div>
+</section> -->
+
+<div class="grid-container">
+
+    {% for new,date,site,i,link in context %}
+
+    <!-- <img src="{{i}}" alt="">
+    <h3>News: </h3> {{new}}
+    <h4>Date: </h4> {{date}}
+    <h4>Source: </h4> {{site}}
+    <br> -->
+
+    <div class="card cardnews" style="width: 18rem;">
+        <img src="{{i}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{new}}</strong></h5>
+          <p><strong>Published: </strong>{{date}}</p>
+          <p><strong>Source: </strong>{{site}}</p>
+          <a href="https://{{link}}" target="_blank">Read Complete Article</a>
+        </div>
+      </div>
+    {% endfor %}
+    
+
+</div>
+
+{% endblock %}

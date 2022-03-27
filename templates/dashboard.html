@@ -1,0 +1,84 @@
+{% extends "index.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    <!-- NavBar -->
+    
+    <nav class="navbar onlynav navbar-expand-lg ">
+        
+        <a class="navbar-brand" href="#"><img class="banner-logo" src="static/images/Logo.png" alt=""></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <!-- <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#main-page">Home</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/loggedin">Back to Home Page</a>
+                </li>
+                
+          </ul>
+        </div>
+    </nav>
+   <div class="dashboard">
+    <div class="flex-shrink-0 p-3 bg-white sidebarmenu" style="width: 255px;">
+        <a class="navbar-brand" href="#"><img class="banner-logo" src="static/images/Logo.png" alt=""></a>
+        <br>
+        <br>
+        <p>My Dashboard</p>
+        <hr>
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed " data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              Estimate Cases
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="/malaria" class="link-dark rounded">Malaria</a></li>
+                <li><a href="#" class="link-dark rounded">Hepatitis</a></li>
+                <li><a href="#" class="link-dark rounded">Influenza</a></li>
+              </ul>
+            </div>
+          </li>
+          <hr>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+              Send Alerts
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-dark rounded">All</a></li>
+                <li><a href="#" class="link-dark rounded">Pharmacies</a></li>
+                <li><a href="#" class="link-dark rounded">Health Centers</a></li>
+                <li><a href="#" class="link-dark rounded">Hospitals</a></li>
+              </ul>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="card cardgraph" style="width: 18rem;">
+        
+        <div class="card-body cg-body">
+          <h5 class="card-title cg-title"><br><br></h5>
+          <p class="card-text">
+            
+            </p>
+          
+        </div>
+      </div>
+      <div class="estimate " >
+          <label for="date" class="datepickhead"><strong>SELECT THE DATE</strong> </label>
+          <input class=" datepick form-control" type="date" name="date" id="" placeholder="DD-MM-YYYY">
+          <a href="/adminDashboard"> <button type="button" class="btn btn-success btn-lg nextbuttons estimatebutton" data-bs-toggle="modal" data-bs-target="#login">
+            ESTIMATE THE NUMBER OF CASES
+          </button></a>
+          <h1 class=" cases"> {{cases}}</h1>
+          
+      </div>
+      
+    </div>
+    
+
+    {% endblock%}
