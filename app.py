@@ -50,9 +50,6 @@ db = SQLAlchemy(app,session_options={"autoflush": False})
 
 Migrate(app,db)
 
-# login_manager=LoginManager()
-# login_manager.init_app(app)
-# login_manager.login_view='users.login'
 
 # Models
 class Admin(db.Model, UserMixin):
@@ -90,8 +87,8 @@ class User(db.Model, UserMixin):
 mynews_malaria=[]
 mynews_hep=[]
 mynews_flu=[]
-no_of_cases="--"
-cases_mal="10"
+
+
 
 
 identity=''
@@ -145,21 +142,6 @@ def user():
     
     return render_template('home.html',action=act_user,form=form,form1=form1,identity=identity)
 
-# @app.route('/query',methods=["GET","POST"])
-# def query():
-#     confirmation="Message Sent "
-#     name=request.args.get('name')
-#     contact=request.args.get('contact')
-#     msg=request.args.get('msg')
-    
-#     # resp=Response()
-#     print(name,contact,msg)
-#     # if response.status_code==200:
-#     #     confirmation="Message sent succesfully!"
-#     # else:
-#     #     confirmation="Please try again!"
-#     render_template ('home.html',confirmation=confirmation)
-#     return redirect(url_for('user')+"#contact")
     
 
     
@@ -305,25 +287,21 @@ def newsflu():
 
     return render_template('news.html',context=mynews_flu,state=state)
 
-# @app.route('/adminDashboard')
-# def dash():
-    
-#     return render_template("dashboard.html",cases=no_of_cases)
 
 @app.route('/adminDashboard_malaria')
 def malaria():
     state="malaria"
-    return render_template('dashboard.html',state=state,cases=no_of_cases)
+    return render_template('dashboard.html',state=state)
 
 @app.route('/adminDashboard_hepatitis')
 def hep():
     state="hepatitis"
-    return render_template('dashboard.html',state=state,cases=no_of_cases)
+    return render_template('dashboard.html',state=state)
 
 @app.route('/adminDashboard_flu')
 def flu():
     state="flu"
-    return render_template('dashboard.html',state=state,cases=no_of_cases)
+    return render_template('dashboard.html',state=state)
 
 @app.route('/all',methods=['GET','POST'])
 def all():
