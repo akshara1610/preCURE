@@ -246,6 +246,20 @@ span
     padding-top: 7% !important;
 }
 
+.notif
+{
+    width:500px;
+    height:4vh;
+    background-color:rgba(192, 65, 65, 0.897);
+    
+    text-align: center;
+    color: white;
+    font-family: 'Inter';
+    padding-top:2px;
+    margin:0 auto;
+
+}
+
 table
 {
     margin-top: 7%;
@@ -388,9 +402,9 @@ tr
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-    margin-left: 3%;
+    grid-gap: 30px;
+    padding: 10px;
+    margin-left: 2%;
     margin-top: 10%;
     
     
@@ -399,14 +413,16 @@ tr
   .cardnews
   {
       margin-bottom: 20px;
+      margin-top: 30%;
       font-family: 'Inter';
       /* border: 5px solid black !important; */
-      box-shadow: 3px 6px 24px rgba(0, 0, 0, 0.7);
+      border-radius: 20px !important;
+      box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.7) !important;
   }
 
   .cardnews:hover
   {
-      transform: scale(1.2);
+      transform: scale(1.05);
   }
 
   body {
@@ -480,7 +496,7 @@ tr
   .btn-toggle::before {
     width: 1.25em;
     line-height: 0;
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='black' stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
     transition: transform .35s ease;
     transform-origin: .5em 50%;
     color: black !important;
@@ -504,6 +520,11 @@ tr
   }
   .btn-toggle-nav a:hover,
   .btn-toggle-nav a:focus {
+    background-color: #d2f4ea;
+
+  }
+  .selected
+  {
     background-color: #d2f4ea;
   }
   
@@ -541,74 +562,197 @@ tr
       display:flex;
       flex-direction: row;
   }
+   .data 
+   {
+       display:flex;
+       flex-direction: row;
+       width:70%;
+   }
 
   .cardgraph
   {
-      width:45% !important;
+      width:70%;
       margin-top: 120px;
       margin-left: 50px;
       height:75vh;
-      border-right: 0 !important;
+      /* border-right: 0 !important; */
+      border-radius: 30px !important;
+  }
+
+  .numeric-data
+  {
+      margin-top: 90px;  
+      display:flex;
+      flex-direction:column;
+      
+      
+  }
+  .numeric-card
+  {
+      width:200px;
+      height:10vh;
+      margin-left: 60%;
+      border-radius: 20px !important;
+      border:1px solid black !important;
+  }
+
+  .cm-title
+  {
+    background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg');
+    height: 5vh;
+    margin:0;
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: bold !important;
+    font-size: 16px !important;
+    color:white;
+    padding-top: 7px;
+    
   }
 
   .cg-title
   {
     background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg');
-      height: 15vh;
+    height: 15vh;
+    font-family: 'Inter';
+    font-weight: bold !important;
+    font-size: 40px !important;
+    color:white;
+    padding-top:3%;
+    padding-left: 7%;
+      
       
   }
 
-  .cg-body
+  .cg-body,.cm-body
   {
       padding: 0 !important;
       
+      
+      
   }
 
-  .estimate
+  
+      
+
+ 
+  /* Alerting Tables */
+
+  .alert-org
   {
-    background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg');
-    width:30%;
-    height: 75vh;
-    margin-top: 121px;
-    left: 0;
-    font-family: 'Inter';
-    font-weight: bold;
-    font-size: 2.5rem !important;
-    color:white;
+      padding: 10%;
+      margin-top: 3%;
+      table-layout: auto !important;
+      border-radius: 10px !important;
   }
 
- /* .form-control
- {
-     width: 75% !important;
-     height:5vh !important;
-     text-align: center;
- } */
+  .alert-org .title
+  {
+    background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg') !important;
+    color:white;
+    font-family: 'Inter';
+  }
 
- .datepickhead
- {
-    margin-left: 50px;
-    margin-top: 20%;  
- }
- .datepick
- {
-     margin-left: 50px;
-     margin-top: 30px;
-     width: 75% !important;
-     height:5vh !important;
-     text-align: center;
- }
+  .msg-alert
+  {
+      margin: 10% auto;
 
- .estimatebutton, .cases
- {
-     margin-top: 10%;
- }
+  }
 
-  .cases
+  .alerts
+  {
+      display: flex;
+      flex-direction: column !important;
+      margin-left:  auto !important;
+      margin-right: auto !important;
+      margin-top: 5% !important;
+      
+  }
+
+  .sendbutton
   {
       font-family: 'Inter' !important;
-      font-weight: bolder !important;
-      font-size: 3rem !important;
-      text-align: center;
+      font-size: 2rem !important;
+      font-weight: bold !important;
+      background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg') !important;
+      border-radius: 40px  !important;
+
+
   }
+
+ /* Medicines */
+ .dropbtn {
+    
+    color: white;
+    
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-right: 0px !important;
+    margin-top: 2.5px !important;
+  }
+
+  .dropdown p
+  {
+      font-family: 'Inter';
+      font-weight: bolder;
+      font-size: medium;
+      padding: 5px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 5px solid RGBA(13, 70, 83, 0.78);
+    border-radius: 5px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: RGBA(13, 70, 83, 0.78);}
+
+  .dropdown-content p
+  {
+      font-family: 'Inter';
+      font-weight: medium;
+      padding:2% 5%;
+  }
+
+  .dropdown-content ul
+  {
+      padding:2%  5%;
+      font-family: 'Inter';
+      font-weight: lighter;
+      font-size: small;
+  }
+
+  
+
+
+  
+ 
 
  

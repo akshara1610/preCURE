@@ -15,8 +15,21 @@
               <!-- <li class="nav-item">
                   <a class="nav-link " aria-current="page" href="#main-page">Home</a>
                 </li> -->
+                {%if state=='malaria'%}
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="/loggedin">Back to Home Page</a>
+                  <a class="nav-link " aria-current="page" href="">News Headlines on Malaria</a>
+                </li>
+                {%elif state=='hepatitis'%}
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="">News Headlines on Hepatitis</a>
+                </li>
+                {%elif state=='flu'%}
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="">News Headlines on Flu</a>
+                </li>
+                {%endif%}
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/loggedin">Back to Home</a>
                 </li>
                 
           </ul>

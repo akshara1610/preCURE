@@ -16,18 +16,34 @@
                   <a class="nav-link " aria-current="page" href="#main-page">Home</a>
                 </li> -->
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="#vision">Vision</a>
+                  <a class="nav-link " aria-current="page" href="#vision">Our Vision</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#team">Our Team</a>
+                </li>
+                {%if identity=='user'%}
                 <li class="nav-item">
                   <a class="nav-link " aria-current="page" href="#contact">Contact</a>
                 </li>
+                {%endif%}
           </ul>
         </div>
     </nav>
-   
+    <div class="{{notif}}">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+        
+      {% endif %}
+    {% endwith %}
+    </div>
 
     <!-- Description -->
     <div class="content-desc">
+      
         <img class="desc-logo" src="static/images/Logo.png" alt="">
         <h1>PREDICT AND PREVENT</h1>
         <p>A one stop solution to predict epidemic outbreak and take measures to curb it at an early stage or take safety measures for protection against it.</p>
@@ -54,7 +70,9 @@
                         <input type="password" class="form-control" name="authpwd" id="" placeholder="password" required/> -->
                         {{form.email(class="form-control")}}
                         {{form.password(class="form-control")}}
+                        
                       </div>
+
                   
                 </div>
                 <div class="modal-footer">
@@ -141,6 +159,7 @@
 
 <!-- Team -->
 <section id="team">
+  <a href="#main-page"><i class="fad fa-2x fa-arrow-alt-from-bottom icon"></i></a>
     <div class="row">
         <div class="col-lg-6 teampic">
             
@@ -180,6 +199,7 @@
 </section>
 
 <!-- Contact -->
+{%if identity=='user'%}
 <section id="contact">
     <a href="#main-page"><i class="fad fa-2x fa-arrow-alt-from-bottom icon"></i></i></a>
     <div class="row">
@@ -199,21 +219,31 @@
         </div>
         <div class="col-lg-6 query">
             <h3>Have a Query?</h3>
-            <form action="{{ url_for('query')}}" >
+            <form action="" method="post" >
                 <div class="form-group ">
-                    
-                    <input type="text" class="form-control " name="name"  placeholder="Name">
+                  
+                  {{form1.hidden_tag()}}
+                    <!-- <input type="text" class="form-control " name="name"  placeholder="Name">
                     <input type="tel" class="form-control" name="contact"  placeholder="Contact No.">
-                    <textarea class="form-control" name="msg" rows="5" placeholder="Message"></textarea>
-                    
+                    <textarea class="form-control" name="msg" rows="5" placeholder="Message"></textarea> -->
+                    {{form1.name_q(class="form-control")}}
+                    {{form1.phone_q(class="form-control")}}
+                    {{form1.email_q(class="form-control")}}
+                    {{form1.message_q(class="form-control")}}
+                  
+                    {{form1.submit3(class="btn btn-primary")}}
+                  
                   </div>
-                  <p>{{confirmation}}</p>
-                  <button class="btn btn-primary" type="submit">Submit</button>
+                  <!-- <p>{{confirmation}}</p> -->
+                  
+                 
+                
             
             </form>
         </div>
     </div>
 </section>
+{%endif%}
 
 <footer class="foot">
     <p>Created by preCURE</p>
