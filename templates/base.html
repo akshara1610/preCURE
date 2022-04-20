@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block title %}Welcome to preCURE portal!{% endblock %}
+
+{% block content %}
+<section id="main-page">
+<div class="bg-color ">
+    
+    <div class="desc-basepage">
+   <a class="boxes" href="/admin">
+       <div class="box-left">
+         <img src="static/images/admin-logo.png" alt="">
+         <br>
+         <br>
+         <h1>ADMIN</h1>
+       </div>
+   </a>
+
+    <!-- Description -->
+    <div class="base-desc">
+        <img class="desc-logo" src="static/images/Logo.png" alt="">
+        <h1>PREDICT AND PREVENT</h1>
+        <p>A one stop solution to predict epidemic outbreak and take measures to curb it at an early stage or take safety measures for protection against it.</p>
+        
+    </div> 
+    <a class="boxes" href="/user">
+    <div class="box-right">
+        <img src="static/images/user-logo.png" alt="">
+        <br>
+        <br>
+        <h1>USER</h1>
+    </div>
+    </a>
+</div>
+</section>
+          <footer class="adminfooter">
+            <p>Created by preCURE</p>
+          </footer>
+
+          {% endblock %}

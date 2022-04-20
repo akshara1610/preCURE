@@ -26,10 +26,14 @@
                   <a class="nav-link " aria-current="page" href="#contact">Contact</a>
                 </li>
                 {%endif%}
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/">Back</a>
+                </li>
           </ul>
         </div>
     </nav>
-    <div class="{{notif}}">
+    <div id="hideme" class="{{notif}}">
+      
       {% with messages = get_flashed_messages() %}
       {% if messages %}
         
@@ -40,7 +44,7 @@
       {% endif %}
     {% endwith %}
     </div>
-
+    
     <!-- Description -->
     <div class="content-desc">
       
@@ -63,9 +67,10 @@
                 <form action="" method="post">
                 <div class="modal-body">
                   
-                      
+                  
                     <div class="form-group ">
                       {{form.hidden_tag()}} 
+                     
                         <!-- <input type="email" class="form-control" name="authemail" id="" placeholder="Email ID" required/>
                         <input type="password" class="form-control" name="authpwd" id="" placeholder="password" required/> -->
                         {{form.email(class="form-control")}}
@@ -95,10 +100,10 @@
                 <form action="" method="post">
                 <div class="modal-body">
                   
-                      
+                    
                     <div class="form-group ">
                       {{form.hidden_tag()}} 
-                        
+                      
                         {{form.name(class="form-control")}}
                         {{form.phone(class="form-control")}}
                         {{form.email(class="form-control")}}

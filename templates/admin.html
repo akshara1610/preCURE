@@ -16,7 +16,7 @@
                   <a class="nav-link " aria-current="page" href="#main-page">Home</a>
                 </li> -->
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="/admin">Logout</a>
+                  <a class="nav-link " aria-current="page" href="/logout">Logout</a>
                 </li>
                 
           </ul>
@@ -26,6 +26,8 @@
 
     <!-- Description -->
     <div class="admin-desc">
+      
+    
         <img class="desc-logo" src="static/images/Logo.png" alt="">
         <h1>PREDICT AND PREVENT</h1>
         <p>A one stop solution to predict epidemic outbreak and take measures to curb it at an early stage or take safety measures for protection against it.</p>
@@ -33,6 +35,49 @@
          <a href="/adminDashboard_malaria"> <button type="button" class="btn btn-success btn-lg nextbuttons" data-bs-toggle="modal" data-bs-target="#login">
             MY DASHBOARD
           </button></a>
+          <div>
+            <button type="button" class="btn btn-success btn-lg updatebuttons " data-bs-toggle="modal" data-bs-target="#update">
+              Update Weekly Data
+            </button>
+          </div>
+      
+            
+           
+            <div class="modal fade updatemod" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <img class="inmodal" src="static/images/Logo.png" alt="">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="" method="post">
+                  <div class="modal-body">
+                    
+                    
+                      <div class="form-group ">
+                        {{form.hidden_tag()}} 
+                       
+                          <!-- <input type="email" class="form-control" name="authemail" id="" placeholder="Email ID" required/>
+                          <input type="password" class="form-control" name="authpwd" id="" placeholder="password" required/> -->
+                          <label class="uplab" for="">Enter the recent weekly number of cases for Malaria</label>
+                          {{form.cases_mal(class="form-control")}}
+                          <label class="uplab" for="">Enter the recent weekly number of cases for Hepatitis</label>
+                          {{form.cases_hep(class="form-control")}}
+                          <label class="uplab" for="">Enter the recent weekly number of cases for Influenza</label>
+                          {{form.cases_flu(class="form-control")}}
+                          
+                        </div>
+      
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    {{form.submit4(class="btn btn-primary log")}}
+                  </div>
+              </form>
+                </div>
+              </div>
+            </div>
     </div>
     <div class="newslinks">
     <a href="/newsMalaria"><button type="button" class="btn btn-success btn-lg newsbuttons" data-bs-toggle="modal" data-bs-target="#login">

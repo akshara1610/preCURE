@@ -11,6 +11,12 @@ body
 
 }
 
+.base
+{
+    margin-top: 0 auto 10% auto;
+    padding-top: 10%;
+}
+
 /* Banner */
 .banner-logo
 {
@@ -44,10 +50,54 @@ body
 
 
 /* Description */
+
+.desc-basepage
+{
+    display: flex;
+    flex-direction: row;
+}
 .content-desc
 {
     margin: 12% auto;
     text-align: center;
+}
+
+.base-desc
+{
+    margin:0 auto 2% auto;
+    padding-top: 12%;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.box-left, .box-right
+{
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, 1), rgb(11, 76, 92,0.78)), url('../images/bg-banner.jpg');
+    border-radius: 10%;
+    padding-top: 10%;
+    text-align: center;
+    border: 2px solid white;
+    box-shadow: 2px 3px 10px rgba(241, 241, 241,0.78) !important;
+
+
+}
+
+.box-left h1, .box-right h1
+{
+    color: white;
+    font-family: 'Inter'  !important;
+    font-weight: bolder !important;
+    font-size: 3rem  !important;
+    
+}
+
+
+
+.boxes
+{
+    margin: 15% 2% 1% 2% !important;
 }
 
 .desc-logo
@@ -55,7 +105,7 @@ body
     width: 250px;
 }
 
-.content-desc h1, .admin-desc h1
+.content-desc h1, .admin-desc h1, .base-desc h1
 {
     color: white;
     font-family: 'Inter';
@@ -64,7 +114,7 @@ body
     padding-top: 15px;
 }
 
-.content-desc p,.admin-desc p
+.content-desc p,.admin-desc p, .base-desc p
 {
     color: white;
     font-family: 'Inter';
@@ -104,6 +154,17 @@ body
     margin-top: 15% !important;
 }
 
+.updatemod
+{
+    margin-top: 10% !important;
+}
+
+.uplab
+{
+    text-align: left !important;
+    font-family: 'Inter';
+    font-weight: bold;
+}
 
 
 .inmodal
@@ -260,6 +321,47 @@ span
 
 }
 
+.success_query
+{
+    width:500px;
+    height:4vh;
+    background-color:rgba(113, 219, 118, 0.897);
+    
+    text-align: center;
+    color: white;
+    font-family: 'Inter';
+    padding-top:2px;
+    margin:0 auto;
+    transition-duration:1s; /* <= creates fade out effect */
+    transition-delay:1s;
+}
+
+#hideme {
+    -moz-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 2s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
 table
 {
     margin-top: 7%;
@@ -363,13 +465,23 @@ tr
 .admin-desc
 {
     text-align: center;
-    margin:10% auto 1% auto;
+    margin:5% auto 1% auto;
 }
 .newslinks
 {
     text-align: center;
 }
 .newsbuttons
+{
+    background: linear-gradient(#2BB4E0,#000080) !important;
+    font-family: 'Inter';
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    margin-left: 7%;
+    margin-right: 5%;
+}
+
+.updatebuttons
 {
     background: linear-gradient(#2BB4E0,#000080) !important;
     font-family: 'Inter';
@@ -562,6 +674,8 @@ tr
       display:flex;
       flex-direction: row;
   }
+
+  
    .data 
    {
        display:flex;
@@ -574,9 +688,18 @@ tr
       width:70%;
       margin-top: 120px;
       margin-left: 50px;
-      height:75vh;
+      height:80vh;
       /* border-right: 0 !important; */
       border-radius: 30px !important;
+  }
+
+  .prob
+  {   width: 60%;
+      margin: 2px auto !important;
+      padding: 0;
+      text-align: center;
+      background-color: rgba(107, 231, 114, 0.897);
+      border: solid 2px rgba(16, 185, 24, 0.897);
   }
 
   .numeric-data
@@ -630,6 +753,14 @@ tr
       
       
       
+  }
+
+  .weeklydata
+  {
+      font-family: 'Inter' !important;
+      font-size: 2rem !important ;
+      text-align: center;
+      font-weight: bolder !important;
   }
 
   
@@ -748,6 +879,10 @@ tr
       font-weight: lighter;
       font-size: small;
   }
+
+ 
+
+
 
   
 

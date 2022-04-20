@@ -47,3 +47,9 @@ class QueryForm(FlaskForm):
     email_q=StringField('email_query',validators=[DataRequired(),Email()],render_kw={"placeholder": "Email ID"})
     message_q=TextAreaField('message_query',validators=[DataRequired()],render_kw={"placeholder": "Type you Query!"})
     submit3=SubmitField('SUBMIT')
+
+class UpdateForm(FlaskForm):
+    cases_mal=StringField('cases_malaria',validators=[DataRequired()] )
+    cases_hep=StringField('cases_hep',validators=[DataRequired()] )
+    cases_flu=StringField('cases_flu',validators=[DataRequired()] )
+    submit4=SubmitField('Update')

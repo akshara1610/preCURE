@@ -117,19 +117,31 @@
        
         <div class="card-body cg-body">
           <h5 class="card-title cg-title">WEEKLY FORECASTS</h5>
-          <p class="card-text">
+          <p  class="card-text">
+            <div class="prob">
+              {% if state=='malaria'%}
+            The probability of Malaria Epidemic Occurence is: {{prob}}
+            {% elif state=='hepatitis'%}
+            The probability of Hepatitis Epidemic Occurence is: {{prob}}
+            {% elif state=='flu'%}
+            The probability of Influenza Epidemic Occurence is: {{prob}}
+
+            {%endif%}
+          </div>
+            <div style="top:0; width: 80% !important; padding-right: 5px !important; margin-top: 0;">{{graph1Plot | safe}}</div>
             
             </p>
           
         </div>
+        
       </div>
       <div class="numeric-data">
         <div class="card numeric-card" >
        
           <div class="card-body cm-body">
             <h5 class="card-title cm-title">Week 1</h5>
-            <p class="card-text">
-              
+            <p class="card-text weeklydata">
+              {{output[0]}}
               </p>
             
           </div>
@@ -138,8 +150,8 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title cm-title ">Week 2</h5>
-            <p class="card-text">
-              
+            <p class="card-text weeklydata">
+              {{output[1]}}
               </p>
             
           </div>
@@ -148,8 +160,8 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 3</h5>
-            <p class="card-text ">
-              
+            <p class="card-text weeklydata ">
+              {{output[2]}}
               </p>
             
           </div>
@@ -158,8 +170,8 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 4</h5>
-            <p class="card-text">
-              
+            <p class="card-text weeklydata">
+              {{output[3]}}
               </p>
             
           </div>
@@ -168,15 +180,17 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 5</h5>
-            <p class="card-text">
-            
+            <p class="card-text weeklydata">
+              {{output[4]}}
               </p>
             
           </div>
         </div>
       </div>
     </div>
+    
   </div>
+  
 
       {%elif state in ['All','pharma','hospital','healthcenter']%}
       <nav class="navbar onlynav navbar-expand-lg ">
