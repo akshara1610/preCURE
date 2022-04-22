@@ -336,6 +336,19 @@ span
     transition-delay:1s;
 }
 
+.blink {
+    color: red;
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+
 #hideme {
     -moz-animation: cssAnimation 0s ease-in 2s forwards;
     /* Firefox */
@@ -803,12 +816,42 @@ tr
   .sendbutton
   {
       font-family: 'Inter' !important;
-      font-size: 2rem !important;
+      font-size: 1rem !important;
       font-weight: bold !important;
       background: linear-gradient(RGBA(13, 70, 83, 1), rgba(12, 1, 1, 0.897) ), url('../images/bg-banner.jpg') !important;
       border-radius: 40px  !important;
+      margin-left: 5px;
+      margin-right: 5px;
 
 
+  }
+
+  .loader
+  {
+      /* display: flex; */
+      text-align: left  !important;
+      display: none;
+  }
+
+  .loader::after
+  {
+      display: flex;
+      content:'';
+      width:30px;
+      height:30px;
+      border: 7px solid #dddddd;
+      border-top-color:#009579 ;
+      border-radius: 50%;
+      animation: loader 1s linear infinite;
+
+  }
+
+  @keyframes loader
+  {
+      to
+      {
+          transform: rotate(1turn);
+      }
   }
 
  /* Medicines */
@@ -878,6 +921,22 @@ tr
       font-family: 'Inter';
       font-weight: lighter;
       font-size: small;
+  }
+  .gohome
+  {
+      margin: 5% auto;
+      text-align: center;
+  }
+  .homebutton
+  {
+      
+      padding: 10px !important;
+      font-family:'Inter';
+      font-weight: bold;
+      color: white !important;
+      border-radius: 20px !important;
+      text-decoration: none;
+      text-align: center;
   }
 
  

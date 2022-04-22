@@ -135,14 +135,24 @@
         </div>
         
       </div>
+      {% if state=='malaria'%}
       <div class="numeric-data">
         <div class="card numeric-card" >
        
           <div class="card-body cm-body">
             <h5 class="card-title cm-title">Week 1</h5>
-            <p class="card-text weeklydata">
-              {{output[0]}}
-              </p>
+            
+               {%if output[0]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[0]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[0]}}
+                  </p>
+                {%endif%}
+
+            
             
           </div>
         </div>
@@ -150,9 +160,15 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title cm-title ">Week 2</h5>
-            <p class="card-text weeklydata">
-              {{output[1]}}
-              </p>
+            {%if output[1]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[1]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[1]}}
+                  </p>
+                {%endif%}
             
           </div>
         </div>
@@ -160,9 +176,15 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 3</h5>
-            <p class="card-text weeklydata ">
-              {{output[2]}}
-              </p>
+            {%if output[2]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[2]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[2]}}
+                  </p>
+                {%endif%}
             
           </div>
         </div>
@@ -170,24 +192,205 @@
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 4</h5>
-            <p class="card-text weeklydata">
-              {{output[3]}}
-              </p>
-            
+            {%if output[3]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[3]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[3]}}
+                  </p>
+                {%endif%}
           </div>
         </div>
         <div class="card numeric-card" >
        
           <div class="card-body cm-body">
             <h5 class="card-title  cm-title">Week 5</h5>
-            <p class="card-text weeklydata">
-              {{output[4]}}
-              </p>
+            {%if output[4]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[4]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[4]}}
+                  </p>
+                {%endif%}
             
           </div>
         </div>
       </div>
-    </div>
+      {% elif state=='hepatitis'%}
+      <div class="numeric-data">
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title cm-title">Week 1</h5>
+            
+               {%if output[0]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[0]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[0]}}
+                  </p>
+                {%endif%}
+
+            
+            
+          </div>
+        </div>
+        <div class="card numeric-card " >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title cm-title ">Week 2</h5>
+            {%if output[1]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[1]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[1]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 3</h5>
+            {%if output[2]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[2]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[2]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 4</h5>
+            {%if output[3]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[3]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[3]}}
+                  </p>
+                {%endif%}
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 5</h5>
+            {%if output[4]>=3%}
+                <p class="card-text weeklydata blink">
+                  {{output[4]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[4]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+      </div>
+      {% elif state=='flu'%}
+      <div class="numeric-data">
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title cm-title">Week 1</h5>
+            
+               {%if output[0]>=220%}
+                <p class="card-text weeklydata blink">
+                  {{output[0]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[0]}}
+                  </p>
+                {%endif%}
+
+            
+            
+          </div>
+        </div>
+        <div class="card numeric-card " >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title cm-title ">Week 2</h5>
+            {%if output[1]>=220%}
+                <p class="card-text weeklydata blink">
+                  {{output[1]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[1]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 3</h5>
+            {%if output[2]>=220%}
+                <p class="card-text weeklydata blink">
+                  {{output[2]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[2]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 4</h5>
+            {%if output[3]>=220%}
+                <p class="card-text weeklydata blink">
+                  {{output[3]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[3]}}
+                  </p>
+                {%endif%}
+          </div>
+        </div>
+        <div class="card numeric-card" >
+       
+          <div class="card-body cm-body">
+            <h5 class="card-title  cm-title">Week 5</h5>
+            {%if output[4]>=220%}
+                <p class="card-text weeklydata blink">
+                  {{output[4]}}
+                  </p>
+               {% else%}
+                <p class="card-text weeklydata">
+                  {{output[4]}}
+                  </p>
+                {%endif%}
+            
+          </div>
+        </div>
+      </div>
+      {%endif%}
     
   </div>
   
@@ -272,9 +475,43 @@
    
       
       <div class="alerts">
+        <div id="hideme" class="{{notif}}">
+      
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            
+            {% for message in messages %}
+              {{message}}
+            {% endfor %}
+            
+          {% endif %}
+        {% endwith %}
+        </div>
+
       <form class="msg-alert" action="" method="post">
+
+        {%if state=='All'%}
         
-        {{form.submit_send(class="btn btn-success btn-lg sendbutton")}}
+        {{form.submit_all_mal(class="btn btn-success  sendbutton")}}
+        {{form.submit_all_hep(class="btn btn-success  sendbutton")}}
+        {{form.submit_all_flu(class="btn btn-success  sendbutton")}}
+
+        {%elif state=='pharma'%}
+        {{form.submit_p_mal(class="btn btn-success  sendbutton")}}
+        {{form.submit_p_hep(class="btn btn-success  sendbutton")}}
+        {{form.submit_p_flu(class="btn btn-success  sendbutton")}}
+
+        {%elif state=='hospital'%}
+        {{form.submit_h_mal(class="btn btn-success  sendbutton")}}
+        {{form.submit_h_hep(class="btn btn-success  sendbutton")}}
+        {{form.submit_h_flu(class="btn btn-success  sendbutton")}}
+
+        {%elif state=='healthcenter'%}
+        {{form.submit_hc_mal(class="btn btn-success  sendbutton")}}
+        {{form.submit_hc_hep(class="btn btn-success  sendbutton")}}
+        {{form.submit_hc_flu(class="btn btn-success  sendbutton")}}
+
+        {%endif%}
       </form>
       <table class="alert-org">
         <tr class="title">

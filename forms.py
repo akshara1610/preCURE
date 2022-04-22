@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, RadioField, FloatFi
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed, FileRequired
+import string
 
 from flask_login import current_user
 # from Project.models import User
@@ -25,21 +26,31 @@ class RegistrationForm(FlaskForm):
     
     submit2=SubmitField('Register as preCURE member')
 
+    
+
     # def check_email(self, field):
     #     if User.query.filter_by(email=field.data).first():
     #         raise ValidationError("Your email has been registered already")
 
 class SendtoAll(FlaskForm):
-    submit_send=SubmitField('SEND ALERT TO ALL')
+    submit_all_mal=SubmitField('Send Alert Regarding Malaria')
+    submit_all_hep=SubmitField('Send Alert Regarding Hepatitis')
+    submit_all_flu=SubmitField('Send Alert Regarding Influenza')
 
 class SendtoP(FlaskForm):
-    submit_send=SubmitField('SEND ALERT TO PHARMACIES')
+    submit_p_mal=SubmitField('Send Alert Regarding Malaria')
+    submit_p_hep=SubmitField('Send Alert Regarding Hepatitis')
+    submit_p_flu=SubmitField('Send Alert Regarding Influenza')
 
 class SendtoH(FlaskForm):
-    submit_send=SubmitField('SEND ALERT TO HOSPITALS')
+    submit_h_mal=SubmitField('Send Alert Regarding Malaria')
+    submit_h_hep=SubmitField('Send Alert Regarding Hepatitis')
+    submit_h_flu=SubmitField('Send Alert Regarding Influenza')
 
 class SendtoHC(FlaskForm):
-    submit_send=SubmitField('SEND ALERT TO HEALTH CENTERS')
+    submit_hc_mal=SubmitField('Send Alert Regarding Malaria')
+    submit_hc_hep=SubmitField('Send Alert Regarding Hepatitis')
+    submit_hc_flu=SubmitField('Send Alert Regarding Influenza')
 
 class QueryForm(FlaskForm):
     name_q=StringField('name_query', validators=[DataRequired()],render_kw={"placeholder": "Name"})
@@ -47,6 +58,8 @@ class QueryForm(FlaskForm):
     email_q=StringField('email_query',validators=[DataRequired(),Email()],render_kw={"placeholder": "Email ID"})
     message_q=TextAreaField('message_query',validators=[DataRequired()],render_kw={"placeholder": "Type you Query!"})
     submit3=SubmitField('SUBMIT')
+
+    
 
 class UpdateForm(FlaskForm):
     cases_mal=StringField('cases_malaria',validators=[DataRequired()] )
