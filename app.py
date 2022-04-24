@@ -109,9 +109,9 @@ mynews_malaria=[]
 mynews_hep=[]
 mynews_flu=[]
 
-tcm=[]
-tch=[]
-tci=[]
+tcm=0
+tch=0
+tci=0
 
 
 
@@ -744,12 +744,14 @@ def newsflu():
 
 @app.route('/adminDashboard_malaria')
 def malaria():
+    global tcm
+    
     state="malaria"
     dates,cases = get_data_from_sql_mal()
     lst_output = forecasting_mal(cases)
     print(lst_output)
     rounded_value=[ round(x) for x in lst_output ]
-    tcm.append(sum(rounded_value))
+    tcm=sum(rounded_value)
     print(tcm)
     prob=round(get_proba_mal(),2)
     print(prob)
@@ -763,12 +765,13 @@ def malaria():
 
 @app.route('/adminDashboard_hepatitis')
 def hep():
+    global tch
     state="hepatitis"
     dates,cases = get_data_from_sql_hep()
     lst_output = forecasting_hep(cases)
     print(lst_output)
     rounded_value=[ round(x) for x in lst_output ]
-    tch.append(sum(rounded_value))
+    tch=sum(rounded_value)
     prob=round(get_proba_hep(),2)
     print(prob)
     graph,output=get_plot(dates,cases, lst_output)
@@ -782,12 +785,13 @@ def hep():
 
 @app.route('/adminDashboard_flu')
 def flu():
+    global tci
     state="flu"
     dates,cases = get_data_from_sql_flu()
     lst_output = forecasting_flu(cases)
     print(lst_output)
     rounded_value=[ round(x) for x in lst_output ]
-    tci.append(sum(rounded_value))
+    tci=sum(rounded_value)
    
     prob=round(get_proba_inf(),2)
     print(prob)
@@ -804,9 +808,9 @@ def all():
     notif=""
     state="All"
     print(tcm)
-    text_mal="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_hep="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_flu="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_mal="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_hep="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_flu="Greetings Health Organization! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
     idlist=[]
     namelist=[]
     phonelist=[]
@@ -923,9 +927,9 @@ def all():
 def pharma():
     notif=""
     state="pharma"
-    text_mal="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_hep="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_flu="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_mal="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_hep="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_flu="Greetings Pharmacy! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
     idlist=[]
     namelist=[]
     phonelist=[]
@@ -1040,9 +1044,9 @@ def pharma():
 def healthcenter():
     notif=""
     state="healthcenter"
-    text_mal="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_hep="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_flu="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_mal="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_hep="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_flu="Greetings Health Center! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
     idlist=[]
     namelist=[]
     phonelist=[]
@@ -1155,9 +1159,9 @@ def healthcenter():
 def hospital():
     notif=""
     state="hospital"
-    text_mal="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_hep="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
-    text_flu="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci[0]) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_mal="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  malaria for the next five weeks are nearly "+ str(tcm) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_hep="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  hepatitis for the next five weeks are nearly "+ str(tch) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
+    text_flu="Greetings Hospital Authority! We at preCURE aim for good health of the society. The number of estimated cases for  influenza for the next five weeks are nearly "+ str(tci) +" hence we request you to be prepared with all the medical neccesities. Regards from Team Precure."
     idlist=[]
     namelist=[]
     phonelist=[]
