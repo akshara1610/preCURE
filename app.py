@@ -30,6 +30,7 @@ import itertools
 from pytrends.request import TrendReq
 from datetime import datetime, timedelta
 from meteostat import Point, Daily
+import time
 
 
 
@@ -90,7 +91,7 @@ class User(db.Model, UserMixin):
     __tablename__='users'
     id=db.Column(db.Integer, primary_key=True)
     user_name=db.Column(db.String(64))
-    phone=db.Column(db.String(64))
+    phone=db.Column(db.String(64),unique=True)
     email=db.Column(db.String(64), unique=True, index=True)
     category=db.Column(db.String(128))
     org_name=db.Column(db.String(64))
@@ -456,12 +457,32 @@ def user():
         org_name=form.data['company']
         org_address=form.data['address']
 
-        user=User(user_name,phone,email,category,org_name,org_address)
+        try:
+            user=User(user_name,phone,email,category,org_name,org_address)
 
-        db.session.add(user)
-        db.session.commit()
-        next=url_for('reg_success')
-        return redirect(next)
+            db.session.add(user)
+            db.session.commit()
+            next=url_for('reg_success')
+            return redirect(next)
+        except Exception as e:
+            error=str(e)
+            print("bla bla")
+            if "duplicate key value" in error:
+                notif="notif"
+
+                flash('This number already exists. Could not Register!')
+                form.submit2.data=None
+                form.name.data=''
+                form.phone.data=''
+                form.email.data=''
+                form.company.data=''
+                form.address.data=''
+        
+                
+
+    
+
+
         
         
     if form1.submit3.data and form1.validate():
@@ -492,17 +513,18 @@ def user():
         # return redirect(next)
 
     elif form.submit2.data and form.validate()==False:
+        print("bla-bla 2")
         notif="notif"
         for field,errors in form.errors.items():
             notif="notif"
+            print(errors[0])
+            err_msg=errors[0]+" Registration Unsuccessful!"
+            flash(err_msg)
             form.name.data=''
             form.phone.data=''
             form.email.data=''
             form.company.data=''
             form.address.data=''
-            print(errors[0])
-            err_msg=errors[0]+" Registration Unsuccessful!"
-            flash(err_msg)
         
 
  
@@ -840,15 +862,7 @@ def all():
     
     if form.submit_all_mal.data and form.validate:
         notif="success_query"
-        # responseData=sms.send_message({
-        #                               "from": '919755416505',
-        #                               "to": '919892902383',
-        #                               "text": "preCURE message testing.",
-        #                               })
-        # if responseData["messages"][0]["status"] == "0":
-        #     print("Message sent successfully.")
-        # else:
-        #     print(f"Message failed with error: {responseData['messages'][0]['error-text']}") 
+         
         for i in phonelist:
             print(i)
             responseData = sms.send_message(
